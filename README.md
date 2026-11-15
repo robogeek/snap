@@ -80,3 +80,6 @@ snap template calHtml {{month ""} {year ""}} {
 ```
 
 
+
+A more complete example is - examples/adserv - which is an attempt to serve "advertisements" onto a webpage.
+
