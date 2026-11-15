@@ -1,0 +1,20 @@
+# -*- tcl -*-
+# ----------- MANIFEST of files contained in memchan1.3 -----------
+file ./configure
+file ./ANNOUNCE
+file ./ChangeLog
+file ./DESCRIPTION
+file ./INSTALL
+file ./LSM
+file ./Makefile.in
+file ./README
+file ./configure.in
+file ./makefile.vc
+file ./manual
+file ./memchan.c
+file ./pkgIndex.tcl.in
+file ./tools
+file ./pkgIndex.win
+file ./tools/check_manifest
+file ./tools/install-sh
+file ./tools/mkinstalldirs

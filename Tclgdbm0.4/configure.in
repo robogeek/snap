@@ -1,0 +1,40 @@
+AC_INIT(tclgdbm.c)
+
+if test "${prefix}" = "NONE"; then
+    prefix=`echo 'puts [[file dirname [file dirname [lindex [set auto_path] 0]]]] ; exit' | tclsh`
+    if test "${prefix}" = ""; then
+        prefix=/usr/local
+        echo "no tclsh found - defaulting \"prefix\" to ${prefix}"
+    else
+        if test -d "${prefix}/lib"; then
+            echo "setting prefix to: ${prefix}"
+        else
+            prefix=`cd ${prefix}/..; pwd`
+            echo "hmm, nonstandard tcl setup, setting \"prefix\" to ${prefix}"
+        fi
+    fi
+fi
+
+if test "${exec_prefix}" = "NONE"; then
+    exec_prefix=$prefix
+fi
+AC_PROG_INSTALL
+
+file=${exec_prefix}/lib/tclConfig.sh
+. $file
+
+CC=$TCL_CC
+
+AC_SUBST(CC)
+AC_SUBST(INSTALL)
+AC_SUBST(INSTALL_PROGRAM)
+AC_SUBST(INSTALL_DATA)
+AC_SUBST(TCL_SHLIB_CFLAGS)
+AC_SUBST(TCL_SHLIB_SUFFIX)
+AC_SUBST(TCL_SHLIB_LD)
+AC_SUBST(TCL_PREFIX)
+AC_SUBST(TCL_EXEC_PREFIX)
+AC_SUBST(TCL_CFLAGS)
+AC_SUBST(TCL_DEFS)
+
+AC_OUTPUT(Makefile)

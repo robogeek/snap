@@ -1,0 +1,11 @@
+#!./snap
+set db [gdbm open test.db rwc]
+foreach i {1 2 3 4 5 6} {
+	gdbm store $db $i "This is data for $i"
+}
+gdbm close $db
+set db [gdbm open test.db r]
+foreach key [lsort [gdbm list $db]] {
+	puts stdout "$key [gdbm fetch $db $key]"
+}
+gdbm close $db

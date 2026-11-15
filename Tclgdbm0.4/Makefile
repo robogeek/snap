@@ -1,0 +1,60 @@
+# Generated automatically from Makefile.in by configure.
+PACKAGE			= Tclgdbm
+VERSION			= 0.4
+OBJS			= tclgdbm.o
+MANS			= tclgdbm.n
+
+#GNU_PREFIX		= /usr/add-on/gnu
+
+#-------------------------------------------------
+INSTALL         = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL}
+INSTALL_DATA    = ${INSTALL} -m 644
+CC              = cc
+SHLIB_CFLAGS    = -fpic
+SHLIB_SUFFIX    = .so
+SHLIB_LD        = ld -Bshareable -x
+TCL_PREFIX      = /usr/local
+TCL_EXEC_PREFIX	= /usr/local
+TCL_CFLAGS      = 
+
+INCLUDES        = -I$(TCL_PREFIX)/include 
+
+DLL             = $(PACKAGE)$(VERSION)$(SHLIB_SUFFIX)
+STATIC_LIB      = lib$(PACKAGE).a
+PACKAGEDIR		= $(TCL_EXEC_PREFIX)/lib/$(PACKAGE)
+
+CFLAGS          = $(TCL_CFLAGS) $(SHLIB_CFLAGS) $(INCLUDES) \
+		  -DVERSION=\"$(VERSION)\"
+
+MAN_INSTALL_DIR = $(TCL_PREFIX)/man/mann
+
+all: $(DLL) pkgIndex.tcl
+
+$(DLL): $(OBJS)
+	$(SHLIB_LD) -o $@ $(OBJS) 
+
+$(STATIC_LIB): $(OBJS)
+	ar cr $@ $(OBJS)
+	ranlib $@
+
+pkgIndex.tcl:
+	(if test -f $(PACKAGEDIR)/pkgIndex.tcl; \
+	    then grep -v $(VERSION) $(PACKAGEDIR)/pkgIndex.tcl; \
+	else true; fi;) | \
+	echo 'package ifneeded $(PACKAGE) $(VERSION) [list load [file join $$dir $(DLL)] $(PACKAGE)]' > pkgIndex.tcl
+
+install: all
+	if test ! -d $(PACKAGEDIR); then mkdir $(PACKAGEDIR); fi
+	$(INSTALL_PROGRAM) $(DLL) $(PACKAGEDIR)/$(DLL)
+	$(INSTALL_DATA) pkgIndex.tcl $(PACKAGEDIR)/pkgIndex.tcl
+	$(INSTALL_DATA) $(MANS) $(MAN_INSTALL_DIR)/
+
+test: all
+	TCLLIBPATH=`pwd` ./torture.tcl
+
+clean: 
+	rm -f *.o core pkgIndex.tcl torture.gdbm* test.data*
+
+distclean: clean
+	rm -f Makefile config.* $(DLL) $(STATIC_LIB)

@@ -1,0 +1,23 @@
+Begin3
+Title:          memchan
+Version:        1.3
+Entered-date:   01-JUN-1997
+Description:    loadable extension, provides commands to create
+		"memory channels". These store their information
+		in main memory, not on disk.
+Keywords:       tcl, channeltypes, memory channel
+Author:         a.kupries@westend.com  (Andreas Kupries)
+Maintained-by:  a.kupries@westend.com  (Andreas Kupries)
+Primary-URL:	ftp://ftp.westend.com/pub/aku/memchan1.3.tar.gz
+	        ftp://ftp.westend.com/pub/aku/memchan13.zip
+        	ftp://ftp.westend.com/pub/aku/memchan1.3.README
+	        ftp://ftp.westend.com/pub/aku/mchan13b.zip
+Secondary-URL:	ftp://ftp.kisters.de/pub/lang/tcl/ext/memchan1.3.tar.gz
+		ftp://ftp.kisters.de/pub/lang/tcl/ext/memchan13.zip
+		ftp://ftp.kisters.de/pub/lang/tcl/ext/memchan1.3.readme
+	        ftp://ftp.kisters.de/pub/lang/tcl/ext/mchan13b.zip
+Copying-policy: BSDStyle (-> tcl)
+Dependencies:   tcl (7.6 or higher)
+Comments:
+End
+

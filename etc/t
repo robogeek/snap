@@ -1,0 +1,7 @@
+This is text
+<Tag>
+<Tag with="quoted value">
+<Tag with=unquotedValue>
+<{
+return "Hello world!"
+}>

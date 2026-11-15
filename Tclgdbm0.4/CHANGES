@@ -1,0 +1,1 @@
+- Fixed memory leak in tcl_gdbm_fetch reported by Toshio TANGE <t-tange@ats.nis.nec.co.jp>

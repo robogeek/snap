@@ -1,0 +1,34 @@
+;; -*- Lisp -*-
+(Created-By-Prcs-Version 1 2 0)
+(Project-Description "")
+(Project-Version Tclgdbm 0 9)
+(Parent-Version Tclgdbm 0 8)
+(Version-Log "")
+(New-Version-Log "")
+(Checkin-Time "Wed, 24 Dec 1997 09:45:13 -0500")
+(Checkin-Login ellson)
+(Populate-Ignore ())
+(Project-Keywords)
+(Files
+;; This is a comment.  Fill in files here.
+;; For example:  (prcs/checkout.cc ())
+
+;; Files added by populate at Wed, 22 Oct 1997 12:21:55 -0400:
+
+  (configure (Tclgdbm/0_configure 1.1 755))
+  (Makefile.in (Tclgdbm/1_Makefile.i 1.3 644))
+  (install-sh (Tclgdbm/2_install-sh 1.1 555))
+  (tclgdbm.n (Tclgdbm/3_tclgdbm.n 1.3 644))
+  (configure.in (Tclgdbm/4_configure. 1.1 644))
+  (torture.tcl (Tclgdbm/5_torture.tc 1.3 755))
+  (test.tcl (Tclgdbm/6_test.tcl 1.3 755))
+  (tclgdbm.c (Tclgdbm/7_tclgdbm.c 1.3 644))
+  (COPYRIGHT (Tclgdbm/8_COPYRIGHT 1.1 444))
+  (README (Tclgdbm/9_README 1.6 644))
+
+;; Files added by populate at Wed, 24 Dec 1997 09:45:06 -0500:
+
+  (CHANGES (Tclgdbm/10_CHANGES 1.1 644))
+)
+(Merge-Parents)
+(New-Merge-Parents)

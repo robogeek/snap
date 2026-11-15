@@ -1,0 +1,7 @@
+#!./snap
+set fname [lindex $argv 0]
+set db [gdbm open $fname r]
+foreach key [lsort [gdbm list $db]] {
+	puts stdout "$key: [gdbm fetch $db $key]"
+}
+gdbm close $db

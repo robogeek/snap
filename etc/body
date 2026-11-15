@@ -1,0 +1,17 @@
+#!./snap -snap_subst
+This is the body.
+This is where we would put fun stuff if we felt like it.
+<p>
+<table>
+<{
+	set db [gdbm open test.db r]
+	set res ""
+	foreach key [lsort [gdbm list $db]] {
+                set val [gdbm fetch $db $key]
+		append res [snap_subst {<tr><th><$key></th><td><$val></td></tr>}]
+		append res "\n"
+	}
+	gdbm close $db
+	return $res
+}>
+</table>

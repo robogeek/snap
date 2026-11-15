@@ -1,0 +1,12 @@
+#!snap -snap_subst
+<HTML>
+<HEAD>
+<TITLE>This is a test</TITLE>
+</HEAD>
+<BODY>
+<TABLE>
+<TR><TD><{ snap_include "navbar" }><TD><{ snap_include "body" }></TR>
+</TABLE>
+<P>
+<p align="<{ return center }>">
+</BODY>
