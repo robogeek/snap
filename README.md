@@ -20,3 +20,26 @@ The argument to `snap_template` starting with `{` is HTML, with a twist.  `<$url
 
 
 That's about all I remember.  I don't see any documentation.  Well, I did write some documentation as comments in the code.
+
+Here's a teensy bit more from the etc directory:
+
+```
+#!snap -snap_subst
+<HTML>
+<HEAD>
+<TITLE>This is a test</TITLE>
+</HEAD>
+<BODY>
+<TABLE>
+<TR><TD><{ snap_include "navbar" }><TD><{ snap_include "body" }></TR>
+</TABLE>
+<P>
+<p align="<{ return center }>">
+</BODY>
+```
+
+Clearly this would be installed as an executable in the filesystem.  The `#!` hashbang says that the binary, `snap`, would be in the PATH.  In modern times the hash-bang line would be a little different.
+
+The `-snap_subst` argument would mean to interpret the remaining stuff using the template system.
+
+The command `<{ snap_include ... }>` clearly looks for and processes the named file, inserting its output into the HTML.
