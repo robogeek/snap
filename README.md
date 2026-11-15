@@ -43,3 +43,40 @@ Clearly this would be installed as an executable in the filesystem.  The `#!` ha
 The `-snap_subst` argument would mean to interpret the remaining stuff using the template system.
 
 The command `<{ snap_include ... }>` clearly looks for and processes the named file, inserting its output into the HTML.
+
+This is another example:
+
+```
+#
+# calHtml - Using the cal(1) program, create an HTML table
+#       showing the matching calendar month.
+#
+
+
+snap template calHtml {{month ""} {year ""}} {
+<{
+    set f [open "|cal $month $year" r]
+    set lines [split [read $f] "\n"]
+    close $f
+    return ""
+}><table>
+<caption><b><{ lindex $lines 0 }></b></caption>
+<tr><th>S</th><th>M</th><th>Tu</th><th>W</th><th>Th</th><th>F</th><th>S</th><th></tr>
+<{
+    set ret ""
+    foreach l [lrange $lines 2 end] {
+        if {[llength $l] <= 0} { continue }
+        append ret "<tr>"
+        while {[regexp {^(...)(.*)$} $l match head rest] != 0} {
+            append ret "<td>$head</td>"
+            set l $rest
+        }
+        if {$l != ""} { append ret "<td>$l</td>" }
+        append ret "</tr>\n"
+    }
+    return $ret
+}></table>
+}
+```
+
+
