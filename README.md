@@ -8,6 +8,9 @@ Hence, this is a system built on TCL and able to be installed in a web-hosting e
 
 The core is a templating system allowing us to write, in the middle of TCL code, 
 
+For a later version of what's in this directory, see: https://github.com/robogeek/7script
+
+
 ```
 snap_template snhtdoc::href {url text {anchor ""}} {
                 <A href="<$url><{ if {$anchor != ""} {
